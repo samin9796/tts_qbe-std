@@ -20,7 +20,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 ### Step 2: Clone this repo
 ```
-git clone 
+git clone https://github.com/samin9796/tts_qbe-std.git
 cd tts_qbe-std
 ```
 ### Step 3: Set up ```gos-kdl``` dataset locally
@@ -66,7 +66,9 @@ conda deactivate
 # Pipeline integrating a TTS system with a QbE-STD system
 bash pipeline.sh
 ```
-After running the script, you will be prompted to type a query at first. Then, the system will return the audio files that contain the query and a comma separated file (CSV) with the similarity scores from the given query and all the reference audio files. These outputs can be found in the ```Output``` directory.
+After running the script, you will be prompted to type a query at first. Then, the system will return the audio files that contain the query and a comma separated file (CSV) with the similarity scores from the given query and all the reference audio files. These outputs can be found in the ```Output``` directory. 
+
+The original documentation from the [QbE-STD repository](https://github.com/fauxneticien/qbe-std_feats_eval) is kept as it is here to provide better insights about this system. However, only the above-mentioned 7 steps should be followed to run this system. 
 
 ## QbE-STD repo documentation
 
