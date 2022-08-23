@@ -1,4 +1,74 @@
-# Evaluation of feature extraction methods for query-by-example spoken term detection with low resource languages
+# An automated corpus generation system integrating a text-to-speech model with a query-by-example spoken term detection system
+
+The system consists of a Text-to-Speech (TTS) system and a query-by-example spoken term detection (QbE-STD) system. The TTS system takes text inputs and generates synthesized audio samples (referred to as queries) that are searched in a unlabelled reference corpus. FastSpeech 2 architecture and Parallel Wavegan vocoder are used to train the TTS system. The search of the queries in the reference corpus is done following this [work](https://github.com/fauxneticien/qbe-std_feats_eval). This repo is also forked from [here](https://github.com/fauxneticien/qbe-std_feats_eval). 
+
+## Usage instructions
+
+### Step 1: Install docker
+The script was used to install docker and docker-compose on a fresh instance of Ubuntu 20.04 LTS, based on [DigitalOcean instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04).
+
+```
+sudo apt update && \
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common && \
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
+sudo apt update && \
+apt-cache policy docker-ce && \
+sudo apt-get -y install docker-ce && \
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+sudo chmod +x /usr/local/bin/docker-compose
+```
+### Step 2: Clone this repo
+```
+git clone 
+cd tts_qbe-std
+```
+### Step 3: Set up ```gos-kdl``` dataset locally
+
+```
+# Download gos-kdl.zip into qbe-std_feats_eval/tmp directory
+wget https://zenodo.org/record/4634878/files/gos-kdl.zip -P tmp/
+
+## Install unzip if necessary
+# apt-get install unzip
+
+# Create directory data/raw/datasets/gos-kdl
+mkdir -p data/raw/datasets/gos-kdl
+
+# Unzip into directory
+unzip tmp/gos-kdl.zip -d data/raw/datasets/gos-kdl
+```
+### Step 4: Pull the docker image
+```
+# For extracting wav2vec 2.0 features and running evaluation scripts
+docker pull fauxneticien/qbe-std_feats_eval
+```
+
+### Step 5: Create the conda environments with the names ```inference``` and ```qbe-std```
+```inference``` environment will contain the packages required for TTS inference. ```qbe-std``` environment is created in this work for future usability.
+```
+# Create two conda environments with the specified names
+conda create -n inference python=3.8 anaconda
+conda create -n qbe-std python=3.8 anaconda
+
+```
+
+### Step 6: Install the required packages for TTS system
+Activate the ```inference``` environment, install the required packages, and then deactivate the environment
+
+```
+conda activate inference
+pip install espnet==0.10.6 pyopenjtalk==0.2 pypinyin==0.44.0 parallel_wavegan==0.5.4 gdown==4.4.0 espnet_model_zoo
+conda deactivate
+```
+### Step 7: Type the query
+```
+# Pipeline integrating a TTS system with a QbE-STD system
+bash pipeline.sh
+```
+After running the script, you will be prompted to type a query at first. Then, the system will return the audio files that contain the query and a comma separated file (CSV) with the similarity scores from the given query and all the reference audio files. These outputs can be found in the ```Output``` directory.
+
+## QbE-STD repo documentation
 
 In this project we examine different feature extraction methods ([Kaldi MFCCs](https://kaldi-asr.org/doc/feat.html), [BUT/Phonexia Bottleneck features](https://speech.fit.vutbr.cz/software/but-phonexia-bottleneck-feature-extractor), and variants of [wav2vec 2.0](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec)) for performing QbE-STD with data from language documentation projects.
 
