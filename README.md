@@ -47,6 +47,18 @@ docker pull fauxneticien/qbe-std_feats_eval
 ```
 
 ### Step 5: Create the conda environments with the names ```inference``` and ```qbe-std```
+
+If anaconda is not installed in your system, you need to install it first. Otherwise, you can ignore the anaconda installation part. You can follow this [link](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-22-04) or run the commands below to install anaconda.
+
+```
+cd /tmp && \
+curl https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh --output anaconda.sh && \
+sha256sum anaconda.sh && \
+bash anaconda.sh && \
+source ~/.bashrc 
+```
+Once anaconda is installed, you need to follow the step below.
+
 ```inference``` environment will contain the packages required for TTS inference. ```qbe-std``` environment is created in this work for future usability.
 ```
 # Create two conda environments with the specified names
