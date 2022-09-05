@@ -18,6 +18,8 @@ sudo apt-get -y install docker-ce && \
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+If you cannot run docker without sudo and getting permission denied error, please follow the instructions from this [link](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo)
+
 ### Step 2: Clone this repo
 ```
 git clone https://github.com/samin9796/tts_qbe-std.git
