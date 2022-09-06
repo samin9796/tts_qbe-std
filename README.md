@@ -75,7 +75,16 @@ conda activate inference
 pip install espnet==0.10.6 pyopenjtalk==0.2 pypinyin==0.44.0 parallel_wavegan==0.5.4 gdown==4.4.0 espnet_model_zoo
 conda deactivate
 ```
-### Step 7: Type the query
+### Step 7: Install Sox for formatting
+
+```
+sudo apt-get install sox
+```
+
+
+### Step 8: Type the query
+
+Step 1-7 has to be performed only once. After successful setup, step 8 is for providing text query as input and getting the audio files as output.
 ```
 # Pipeline integrating a TTS system with a QbE-STD system
 bash pipeline.sh
