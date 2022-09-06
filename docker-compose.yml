@@ -10,7 +10,7 @@ services:
         working_dir: /home/qbe-std_feats_eval
         # entrypoint:
         #    - /bin/bash
-        command: sh -c 'python scripts/wav_to_w2v2-feats.py --dataset gos-kdl --stage transformer --layer 11 --model wav2vec2-large --queries_dir synthesized_queries && python scripts/feats_to_dtw.py wav2vec2-large_transformer-L11 gos-kdl --queries_file synthesized_queries.pickle'
+        command: sh -c 'python scripts/wav_to_w2v2-feats.py --dataset gos-kdl --stage transformer --layer 11 --model wav2vec2-dutch-large --queries_dir synthesized_queries && python scripts/feats_to_dtw.py wav2vec2-dutch-large_transformer-L11 gos-kdl --queries_file synthesized_queries.pickle'
         stdin_open: true
         tty: true
 
