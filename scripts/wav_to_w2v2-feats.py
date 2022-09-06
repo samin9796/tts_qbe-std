@@ -21,6 +21,7 @@ KNOWN_MODELS = {
     'wav2vec2-large-lv60': 'facebook/wav2vec2-large-lv60',
     'wav2vec2-large-xlsr-53': {'name' : 'facebook/wav2vec2-large-xlsr-53', 'revision' : '8e86806e53a4df405405f5c854682c785ae271da' },
     # May 6, 2021 version: https://huggingface.co/facebook/wav2vec2-large-xlsr-53/commit/8e86806e53a4df405405f5c854682c785ae271da
+    'wav2vec2-dutch-large': 'GroNLP/wav2vec2-dutch-large',
     
     # Fine-tuned
     'wav2vec2-base-960h': 'facebook/wav2vec2-base-960h',
