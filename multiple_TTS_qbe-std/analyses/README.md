@@ -1,0 +1,31 @@
+# Analyses
+
+- Analyses relating to Maximum Term Weighted Values (Figure 2 and first 2 paragraphs of section 4)
+  - [mtwv.md](https://github.com/fauxneticien/qbe-std_feats_eval/blob/master/analyses/mtwv.md): Markdown file viewable on GitHub
+  - mtwv.Rmd: RMarkdown file used to generate Markdown file
+  - plot_mtwvs.R: R function to generate Figure 2 from paper
+  - mtwv_by_queries.R: R script to generate data/mtwv_by_queries.csv
+  - Data used:
+    - data/main-all_mtwv.csv
+    - data/mtwv_by_queries.csv
+- Phonologically-based error analysis (third paragraph of section 4)
+  - [error-analysis.md](https://github.com/fauxneticien/qbe-std_feats_eval/blob/master/analyses/error-analysis.md): Markdown file viewable on GitHub
+  - error-analysis.Rmd: RMarkdown file used to generate Markdown file
+  - Data used:
+    - data/error-analysis.csv
+    - data/20210225-Large-0FT_transformer-L11_wrm-pd.csv
+    - data/20210225-Large-0FT_transformer-L11_gbb-lg.csv
+    - data/20210225-Large-0FT_transformer-L11_gbb-pd.csv
+    - data/20210225-Large-0FT_transformer-L11_gup-wat.csv
+    - data/20210225-Large-0FT_transformer-L11_mwf-jm.csv
+    - data/20210225-Large-0FT_transformer-L11_pjt-sw01.csv
+    - data/20210225-Large-0FT_transformer-L11_wbp-jk.csv
+    - data/20210225-Large-0FT_transformer-L11_wrl-mb.csv
+
+- Exploration of wav2vec 2.0 Transformer feature space
+	- extract-w2v2-agg-feats.py: script to extract features aggregated across intervals of interest defined in a CSV file (e.g. [a] from 1.0 to 1.5 s in car.wav)
+	- plot_feat-ellipses.R: script to produce Figure 3 in paper
+	- Data used:
+		- data/Kaytetye-consonants.csv
+		- data/Kaytetye-consonants_w2v2-large_T11-feats.csv
+		- data/Kaytetye-consonants_w2v2-xlsr_T11-feats.csv
