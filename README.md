@@ -1,6 +1,6 @@
-# An automated corpus generation system integrating a text-to-speech model with a query-by-example spoken term detection system
+# Integration of text-to-speech models with a query-by-example spoken term detection system
 
-The system consists of a Text-to-Speech (TTS) system and a query-by-example spoken term detection (QbE-STD) system. The TTS system takes text inputs and generates synthesized audio samples (referred to as queries) that are searched in a unlabelled reference corpus. FastSpeech 2 architecture and Parallel Wavegan vocoder are used to train the TTS system. The search of the queries in the reference corpus is done following this [work](https://github.com/fauxneticien/qbe-std_feats_eval). This repo is also forked from [here](https://github.com/fauxneticien/qbe-std_feats_eval). 
+The system consists of Text-to-Speech (TTS) systems and a query-by-example spoken term detection (QbE-STD) system. The TTS system takes text inputs and generates synthesized audio samples (referred to as queries) that are searched in a unlabelled reference corpus. FastSpeech 2 architecture and Parallel Wavegan vocoder are used to train the TTS system. The search of the queries in the reference corpus is done following this [work](https://github.com/fauxneticien/qbe-std_feats_eval). This repo is also forked from [here](https://github.com/fauxneticien/qbe-std_feats_eval). 
 
 ## Usage instructions
 
