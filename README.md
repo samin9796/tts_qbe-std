@@ -21,10 +21,20 @@ sudo chmod +x /usr/local/bin/docker-compose
 If you cannot run docker without sudo and getting permission denied error, please follow the instructions from this [link](https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo)
 
 ### Step 2: Clone this repo
+
+If you want to use only a single TTS system integrated to the qbe-std system, then use the following:
 ```
 git clone https://github.com/samin9796/tts_qbe-std.git
 cd tts_qbe-std
 ```
+
+If you want to use multiple TTS systems integrated to the qbe-std system, then go to the following directory:
+```
+git clone https://github.com/samin9796/tts_qbe-std.git
+cd tts_qbe-std/multiple_TTS_qbe-std/
+```
+For multiple TTS systems, there are three TTS systems trained on three different Gronings variants. For each of the variant, we get a similarity score for a query and reference pair. We take the average of the similarity scores from the TTS models and use that as input to our machine learning classifier to figure out whether it is a match or non-match.
+
 ### Step 3: Set up ```gos-kdl``` dataset locally
 
 ```
